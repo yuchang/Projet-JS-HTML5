@@ -1,0 +1,112 @@
+body {
+	background-color: #DCDDD8;
+}
+
+article {
+	border: 1px solid #e5e5e5;
+	margin: 0 auto 20px;
+	padding: 19px 17px 17px;
+	background-color: #fef;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+article video{	
+	width: 100%;	
+}
+
+.white {
+	background-color: white;
+}
+
+.colorize {
+	color: #E05206;
+}
+
+.content {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+form#inscription {
+	margin: 0 auto 20px;
+	background: #9cbc2c;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px 250px;
+	width: 480px;
+}
+
+form,fieldset,legend,ol,li {
+	margin: 0;
+	padding: 0;
+}
+
+form#inscription ol li {
+	background: #b9cf6a;
+	background: rgba(255, 255, 255, .3);
+	border-color: #e3ebc3;
+	border-color: rgba(255, 255, 255, .6);
+	border-style: solid;
+	border-width: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 30px;
+	list-style: none;
+	padding: 5px 10px;
+	margin-bottom: 2px;
+}
+
+form#inscription ol ol li {
+	background: none;
+	border: none;
+	float: left;
+}
+
+form#inscription fieldset fieldset legend {
+	color: #111111;
+	font-size: 13px;
+	font-weight: normal;
+	padding-bottom: 0;
+}
+
+form#inscription legend {
+	color: #384313;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	text-shadow: 0 1px 1px #c0d576;
+}
+
+form#inscription fieldset {
+	border: none;
+	margin-bottom: 10px;
+}
+
+form#inscription fieldset:last-of-type {
+	margin-bottom: 0;
+}
+
+form#inscription label {
+	float: left;
+	font-size: 13px;
+	width: 160px;
+	margin-left: 20px;
+}
+
+form#inscription fieldset fieldset label {
+	background: none no-repeat left 50%;
+	line-height: 20px;
+	padding: 0 0 0 30px;
+	width: auto;
+}
+
+form#inscription fieldset fieldset label:hover {
+	cursor: pointer;
+}

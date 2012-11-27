@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Service</title>
+		<meta name="description" content="Bibliothèque">
+		<meta name="author" content="YuchangLv & QiangLiu">
+
+		<!-- Styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<style>
+			body {
+				padding-top: 60px;
+			}
+			/* Custom container */
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+			}
+			.container-narrow > hr {
+				margin: 30px 0;
+			}
+		</style>
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+	</head>
+
+	<body>
+		<noscript>
+			<h1>This application requires JavaScript. Please enable JavaScript in your browser and reload this page.</h1>
+		</noscript>
+
+		<header>
+			<section class="navbar navbar-fixed-top">
+				<section class="navbar-inner">
+					<section class="container">
+						<a class="brand" href="#" title="Bibliothèque">Bibliothèque</a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+
+						<section class="nav-collapse">
+							<ul id="navH" class="nav">
+								<li id="homeMenu">
+									<a href="index.html">Accueil</a>
+								</li>
+								<li id="resourceMenu" class="dropdown">
+									<a href="#ressources">Ressources</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="livre.html">Livres</a>
+										</li>
+										<li>
+											<a href="#">Magasins</a>
+										</li>
+										<li>
+											<a href="#">Musiques</a>
+										</li>
+										<li>
+											<a href="#">Images</a>
+										</li>
+										<li>
+											<a href="#">Movies</a>
+										</li>
+										<li>
+											<a href="#">Jounalistes</a>
+										</li>
+										<li>
+											<a href="#">Documents</a>
+										</li>
+									</ul>
+								</li>
+								<li id="contactMenu">
+									<a href="#actualites">Actualités</a>
+								</li>
+								<li id="contactMenu" class="active">
+									<a href="service.html">Service</a>
+								</li>
+								<li id="contactMenu">
+									<a href="#contact">Contact</a>
+								</li>
+							</ul>
+							<ul id="navR" class="nav pull-right">
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="inscription.html" id="signup">Inscrivez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="login">Identifiez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="about">Nous connaître</a>
+								</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+			</section>
+		</header>
+
+		<section>
+			<div class="container-narrow">
+				<article>
+					<h3>Emprunts :</h3>
+					<p class="bodytext">
+						la Bibliothèque vous propose le &quot;Prêt 30 + 1&quot;
+						<br>
+						<br>
+						Vous pouvez donc emprunter 30 documents que vous le souhaitez parmi l’ensemble des supports suivants :
+						<br>
+						<br>
+						-    livres
+						<br>
+						-    revues
+						<br>
+						-    cd enfants
+						<br>
+						-    cd adultes
+						<br>
+						-    dvd documentaires
+						<br>
+						-    cd de textes lus
+						<br>
+						-    dvd documentaires
+						<br>
+						<br>
+						seul l’emprunt des DVD fiction (films) est limité à un par carte et par personne.
+						<br>
+						<br>
+						Les enfants de moins de 12 ans ne peuvent emprunter que des DVD ou des CD &quot;enfants&quot;
+						<br>
+						<br>
+						Les collectivités et enseignants sont invités à se rapprocher des responsables de médiathèques afin de définir, ensemble, le nombre, la durée et les modalités de prêt.
+						<br>
+						<br>
+					</p>
+					<h3>Durée de prêt :</h3>
+					<p class="bodytext">
+						Les documents sont prêtés pour trois semaines maximum.
+						<br>
+						Le prêt peut éventuellement être prolongé une fois pour trois semaines supplémentaires si les documents ne sont pas réservés par d’autres usagers.
+						<br>
+						Le renouvellement des prêts doit se faire avant la date échéance. Il peut se faire par téléphone ou par l’intermédiaire du compte lecteur.
+						<br>
+						<br>
+					</p>
+					<h3>Retards :</h3>
+					<p class="bodytext">
+						Tout retard dans le retour des documents pénalise l'ensemble des lecteurs. Aussi, une suspension des droits de prêt équivalente au nombre de jours de retard sera appliquée dès le premier jour de retard.
+						<br>
+						Un premier courriel de rappel est adressé à l'emprunteur au-delà de 21 jours de retard, un second est envoyé deux semaines après le premier. si ce dernier rappel reste sans effets, une somme forfaitaire sera réclamée par le Trésor Public.
+						<br>
+						Il est toutefois toujours possible pour les adhérents de prendre contact avec les responsables de services afin de restituer ou remplacer les documents réclamés.
+					</p>
+					<!--  Text: [end] -->
+				</article>
+				<hr>
+			</div>
+		</section>
+		<footer id="notebook">
+			<section class="navbar navbar-fixed-bottom">
+				<section class="navbar-inner">
+					<section class="container">
+						<textarea id="notebookTextarea" class="input-xlarge span12" rows="2" style="display: none;"></textarea>
+						<section style="text-align:center;">
+							<button id="notebookButton" class="btn btn-primary">
+								NOTEBOOK
+							</button>
+						</section>
+					</section>
+				</section>
+			</section>
+		</footer>
+
+		<!-- Chargement des fichiers JavaScript-->
+		<script src="lib/prototype.js"></script>
+		<script src="js/bibliotheque.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>

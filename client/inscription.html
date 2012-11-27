@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Page d'inscription</title>
+		<meta name="description" content="Bibliothèque">
+		<meta name="author" content="YuchangLv & QiangLiu">
+
+		<!-- Styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<style>
+			body {
+				padding-top: 60px;
+			}
+			.form-signin {
+				max-width: 300px;
+				padding: 19px 29px 29px;
+				margin: 0 auto 20px;
+				background-color: #fff;
+				border: 1px solid #e5e5e5;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+				-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+				box-shadow: 0 1px 2px rgba(0,0,0,.05);
+			}
+		</style>
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+	</head>
+
+	<body>
+
+		<header>
+			<section class="navbar navbar-fixed-top">
+				<section class="navbar-inner">
+					<section class="container">
+						<a class="brand" href="#" title="Bibliothèque">Bibliothèque</a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+
+						<section class="nav-collapse">
+							<ul id="navH" class="nav">
+								<li id="homeMenu">
+									<a href="index.html">Accueil</a>
+								</li>
+								<li id="resourceMenu" class="dropdown">
+									<a href="#ressources">Ressources</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="livre.html">Livres</a>
+										</li>
+										<li>
+											<a href="#">Magasins</a>
+										</li>
+										<li>
+											<a href="#">Musiques</a>
+										</li>
+										<li>
+											<a href="#">Images</a>
+										</li>
+										<li>
+											<a href="#">Movies</a>
+										</li>
+										<li>
+											<a href="#">Jounalistes</a>
+										</li>
+										<li>
+											<a href="#">Documents</a>
+										</li>
+									</ul>
+								</li>
+								<li id="contactMenu">
+									<a href="#actualites">Actualités</a>
+								</li>
+								<li id="contactMenu">
+									<a href="service.html">Service</a>
+								</li>
+								<li id="contactMenu">
+									<a href="#contact">Contact</a>
+								</li>
+							</ul>
+							<ul id="navR" class="nav pull-right">
+								<li class="sectionider-vertical"></li>
+								<li class="active">
+									<a href="inscription.html" id="signup">Inscrivez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="login">Identifiez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="about">Nous connaître</a>
+								</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+			</section>
+		</header>
+		<div class="container">
+			<form id="inscription">
+				<fieldset>
+					<legend>
+						Login
+					</legend>
+					<ol>
+						<li>
+							<label for=email>E-mail</label>
+							<input id=email name=email type=email placeholder="example@domain.com" required/>
+						</li>
+						<li>
+							<label for=pass>Mot de passe</label>
+							<input id=pass name=pass type=password required/>
+						</li>
+						<li>
+							<label for=pass_confirm>Mot de passe confirmé</label>
+							<input id=pass_confirm name=pass_confirm type=password required/>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset>
+					<legend>
+						Information personnelle
+					</legend>
+					<ol>
+						<li>
+							<label for=nom>Nom</label>
+							<input id=nom name=nom type=text placeholder="Nom" required autofocus/>
+						</li>
+						<li>
+							<label for=prenom>Prénom</label>
+							<input id=prenom name=prenom type=text placeholder="Prénom" required/>
+						</li>
+						<li>
+							<label for=ecole>Université</label>
+							<input type="text" list="ecole_liste" name="link" />
+							<datalist id="ecole_liste">
+								<option label="Lille1" value="Université Lille 1" />
+								<option label="Lille2" value="Université Lille 2" />
+								<option label="Lille3" value="Université Lille 3" />
+								<option label="Polytech" value="Polyteche Lille" />
+								<option label="Autre" value="Autre " />
+							</datalist>
+						<li>
+							<label for=born_date>Date de naissance</label>
+							<input type="date" name="born_date" />
+						</li>
+						<li>
+							<label for=blog>Blog</label>
+							<input type="url" name="blog" placeholder="www.facebook.com/monPage.html"/>
+						</li>
+						<li>
+							<label for=phone>Phone</label>
+							<input id=phone name=phone type=tel placeholder="Eg. +06 12 34 56 78" required/>
+						</li>
+					</ol>
+				</fieldset>
+				<fieldset>
+					<button type=submit class="btn btn-primary btn-large">
+						Valider
+					</button>
+				</fieldset>
+			</form>
+		</div>
+		<!-- /container -->
+		<hr>
+		<footer id="notebook">
+			<section class="navbar navbar-fixed-bottom">
+				<section class="navbar-inner">
+					<section class="container">
+						<textarea id="notebookTextarea" class="input-xlarge span12" rows="2" style="display: none;"></textarea>
+						<section style="text-align:center;">
+							<button id="notebookButton" class="btn btn-primary">
+								NOTEBOOK
+							</button>
+						</section>
+					</section>
+				</section>
+			</section>
+		</footer>
+
+		<!-- Chargement des fichiers JavaScript-->
+		<script src="lib/prototype.js"></script>
+		<script src="js/bibliotheque.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>

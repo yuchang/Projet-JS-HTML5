@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Livres</title>
+		<meta name="description" content="Bibliothèque">
+		<meta name="author" content="YuchangLv & QiangLiu">
+
+		<!-- Styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<style>
+			.outside {
+				width: 235px;
+				height: 300px;
+				overflow: hidden;
+			}
+			body {
+				padding-top: 60px;
+			}
+		</style>
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+	</head>
+
+	<body>
+		<noscript>
+			<h1>This application requires JavaScript. Please enable JavaScript
+			in your browser and reload this page.</h1>
+		</noscript>
+
+		<header>
+			<section class="navbar navbar-fixed-top">
+				<section class="navbar-inner">
+					<section class="container">
+						<a class="brand" href="#" title="Bibliothèque">Bibliothèque</a>
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
+
+						<section class="nav-collapse">
+							<ul id="navH" class="nav">
+								<li id="homeMenu">
+									<a href="index.html">Accueil</a>
+								</li>
+								<li id="resourceMenu" class="dropdown active">
+									<a href="#ressources">Ressources</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="livre.html">Livres</a>
+										</li>
+										<li>
+											<a href="#">Magasins</a>
+										</li>
+										<li>
+											<a href="#">Musiques</a>
+										</li>
+										<li>
+											<a href="#">Images</a>
+										</li>
+										<li>
+											<a href="#">Movies</a>
+										</li>
+										<li>
+											<a href="#">Jounalistes</a>
+										</li>
+										<li>
+											<a href="#">Documents</a>
+										</li>
+									</ul>
+								</li>
+								<li id="contactMenu">
+									<a href="#actualites">Actualités</a>
+								</li>
+								<li id="contactMenu">
+									<a href="service.html">Service</a>
+								</li>
+								<li id="contactMenu">
+									<a href="#contact">Contact</a>
+								</li>
+							</ul>
+							<ul id="navR" class="nav pull-right">
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="inscription.html" id="signup">Inscrivez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="login">Identifiez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="about">Nous connaître</a>
+								</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+			</section>
+		</header>
+
+		<section>
+			<div class="container">
+				<div class="hero-unit">
+					<h1>L'ACCESSIBILITÉ</h1>
+					<p>
+						Rendre accessible un site Internet, c'est permettre à tous les internautes, quel que soit leur handicap, quelle que soit leur situation, d'accéder à toute la richesse du contenu proposé.
+					</p>
+					<p>
+						<a class="btn btn-danger btn-large" href="#">Savoir plus &raquo;</a>
+					</p>
+				</div>
+				<p>
+					<a id="plus" class="btn btn-primary btn-large">&raquo; Plus de meilleures livres </a>
+				</p>
+				<div id="livres" class="row">
+					<div class="span3">
+						<article>
+							<div class="outside"><img src="toolsImg/b001.jpg">
+							</div>
+							<h2>The clean coder</h2>
+							<h5>Jonathan Kellerman</h5>
+							<p>
+								Les recettes du casting des 19 finalistes, les meilleures recettes de chaque épreuve, des conseils de pro...A ne pas manquer !
+							</p>
+							<p>
+								<a class="btn" href="#">Voir detailes &raquo;</a>
+							</p>
+						</article>
+					</div>
+
+					<div class="span3">
+						<article>
+							<div class="outside"><img src="toolsImg/b002.jpg">
+							</div>
+							<h2>Oksa Pollock, T5</h2>
+							<h5>Jonathan Kellerman</h5>
+							<p>
+								Oksa et les Sauve-Qui-Peut sont de retour ! Découvrez la série-phénomène dont le succès s'est construit par le bouche à oreille.
+							</p>
+							<p>
+								<a class="btn" href="#">Voir detailes &raquo;</a>
+							</p>
+						</article>
+					</div>
+					<div class="span3">
+						<article>
+							<div class="outside"><img src="toolsImg/b004.jpg">
+							</div>
+							<h2>Le sermon</h2>
+							<h5>Jonathan Kellerman</h5>
+							<p>
+								Récompensé du prestigieux prix Goncourt, ce roman vous emmène au cœur d'un petit village corse au bord de sa chute.
+							</p>
+							<p>
+								<a class="btn" href="#">Voir detailes &raquo;</a>
+							</p>
+						</article>
+					</div>
+					<div class="span3">
+						<article>
+							<div class="outside"><img src="toolsImg/b003.jpg">
+							</div>
+							<h2>Le Chat Erectus</h2>
+							<h5>Jonathan Kellerman</h5>
+							<p>
+								Jeux de mots, sentences, pensées, aphorismes et non-sens à répétition : le Chat est de retour !
+							</p>
+							<p>
+								<a class="btn" href="#">Voir detailes &raquo;</a>
+							</p>
+						</article>
+					</div>
+				</div>
+
+				<hr>
+			</div>
+		</section>
+
+		<footer id="notebook">
+			<section class="navbar navbar-fixed-bottom">
+				<section class="navbar-inner">
+					<section class="container">
+						<textarea id="notebookTextarea"
+	class="input-xlarge span12" rows="2" style="display: none;"></textarea>
+						<section style="text-align: center;">
+							<button id="notebookButton" class="btn btn-primary">
+								NOTEBOOK
+							</button>
+						</section>
+					</section>
+				</section>
+			</section>
+		</footer>
+
+		<!-- Chargement des fichiers JavaScript-->
+		<script src="lib/prototype.js"></script>
+		<script src="js/bibliotheque.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/main.js"></script>
+
+		<script type="text/javascript" language="javascript">
+			var btn1 = $("#plus");
+			btn1.addEventListener("click", {
+				handleEvent : function(event) {
+					test();
+				}
+			}, false);
+
+			function test() {
+				var myAjax = new Ajax.Request('server/data.html', {
+					method : 'get',
+					onComplete : showResponse
+				});
+			}
+
+			function showResponse(response) {
+				document.getElementById("livres").innerHTML = response.responseText;
+
+			}
+
+		</script>
+
+	</body>
+</html>
