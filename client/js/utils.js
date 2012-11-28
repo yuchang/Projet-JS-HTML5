@@ -1,3 +1,51 @@
+Utility = {
+	extend : function(c,p){
+		var c = c || {};
+		for (var i in p) {
+			if (typeof p[i] === 'object') {
+			c[i] = (p[i].constructor === Array) ? [] : {};
+			Utility.extend(p[i], c[i]);
+			} else {
+				c[i] = p[i];
+			}
+		}
+		return c;		
+	}
+}
+
+Template = {
+
+    tpls: {},
+ 
+    loadTpls: function(views, callback) {
+        var self = this;
+        var loadTpl = function(index) {
+            var view = views[index];
+            console.log("Loading : " + view);
+            new Ajax.Request("templates/" + view + ".html",{
+            	method : 'get',
+				onSuccess : function(template){
+					self.tpls[view] = template.responseText;
+                	++index < views.length ? loadTpl(index):callback();
+				},
+				onFailure : function(){
+					console.log("Loading FAILED: " + view);
+				}
+            });
+
+        };
+        loadTpl(0); //demarrage de chargement, de facon recursive
+    },
+
+    get: function(view) {
+        return this.tpls[view];
+    }
+};
+
+
+
+
+
 (function(window) {
 	/*
 	 * search the content in the window
@@ -18,7 +66,7 @@
 			}
 			if (typeof selector === "string") {
 				if (exprId.exec(selector)) {
-					return document.getElementById(selector.substr(1))[0];
+					return document.getElementById(selector.substr(1));
 				}
 				if (exprClass.exec(selector)) {
 					for ( var i = 0; i < _el.length; i++) {
@@ -101,8 +149,7 @@
 							event.target.parentNode.addClass(act);
 							for ( var i = 0; i < groups.length; i++) {
 								bt = groups[i];
-								if (bt.nodeType == 1
-										&& bt != event.target.parentNode)
+								if (bt.nodeType == 1 && bt != event.target.parentNode)
 									bt.removeClass(act);
 							}
 						}
