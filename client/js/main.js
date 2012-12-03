@@ -5,6 +5,7 @@
 	    //Insertion de nouveaux templates ici 
 	    ], function(){
 	    	
+	    biblio.canvasInit();
 		biblio.notebookInit();
 		biblio.notebookActive();
 		

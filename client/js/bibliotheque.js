@@ -109,7 +109,7 @@
 			img.id = "temp_img";
 			img.src = url;
 			img.addEventListener('dragstart', function(e) {
-				drag(event);
+				biblio.canvasDrag(e);
 			}, false);
 			if (document.getElementById("temp_box")) {
 				document.getElementById("temp_box").appendChild(img);
@@ -138,6 +138,60 @@
 		}
 	};
 	
+	biblio.canvasImgCounter = 1;
+	
+	biblio.canvasAllowDrop = function(ev){
+		ev.preventDefault();
+	};
+	
+	biblio.canvasDrop = function(ev){
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("Text");
+		var para = document.createElement('h4');
+		para.innerHTML = "Signature-" + biblio.canvasImgCounter++;
+		para.style = "font: verdana,arial,sans-seri 24px";
+		var line = document.createElement('hr');
+		ev.target.appendChild(para);
+		ev.target.appendChild(document.getElementById(data));
+		ev.target.appendChild(line);		
+	};
+	
+	biblio.canvasDrag = function(ev) {
+		ev.dataTransfer.setData("Text", ev.target.id);
+	};
+	
+	biblio.canvasInit = function(){
+		var draw = new biblio.Drawbox(document.getElementsByTagName('canvas')[0]);
+		draw.init();
+		// effacer
+		var bt1 = document.getElementById('Button1');
+		// redessiner
+		var bt2 = document.getElementById('Button2');
+		// exporter
+		var bt3 = document.getElementById('Button3');
+		bt1.addEventListener('click', function(e) {
+			draw.clear()
+		}, false);
+	
+		bt2.addEventListener('click', function(e) {
+			draw.reDraw()
+		}, false);
+	
+		bt3.addEventListener('click', function(e) {
+			draw.toPng()
+		}, false);
+		//
+		var mark = document.getElementById('image_mark');
+		// drop data
+		mark.addEventListener('drop', function(e) {
+			biblio.canvasDrop(e)
+		}, false);
+		// afer drop, allow anotther drop
+		mark.addEventListener('dragover', function(e) {
+			biblio.canvasAllowDrop(e)
+		}, false);		
+	}
+	
 	biblio.notebookInit = function(){
 		var notebook = document.getElementById("notebook");
 		notebook.innerHTML = Template.get("notebook");
@@ -162,8 +216,6 @@
 		btnNotebook.addEventListener("click", openNotebook, false);
 		textarea.addEventListener("dblclick", closeNotebook, false);
 	};
-	
-	
 
 	window.biblio = biblio;
 })(window);
