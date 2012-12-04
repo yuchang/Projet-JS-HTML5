@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Images</title>
+		<title>Contact</title>
 		<meta name="description" content="Bibliothèque">
 		<meta name="author" content="YuchangLv & QiangLiu">
 
@@ -10,30 +10,184 @@
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-
 		<style>
-			.outside {
-				width: 235px;
-				height: 300px;
-				overflow: hidden;
-			}
-
 			body {
 				padding-top: 60px;
-			}
+			}
+
+			/* Custom container */
+			.container-narrow {
+				margin: 0 auto;
+				max-width: 700px;
+			}
+
+			#log {
+				width: 440px;
+				height: 200px;
+				border: 1px solid #7F9DB9;
+				overflow: auto;
+			}
+
+			#msg {
+				width: 330px;
+			}
 		</style>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+		<script src="lib/prototype.js"></script>
+		<script src="js/bibliotheque.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/router.js"></script>
+		<script>
+			var map, marker;
+			function initialize() {
 
-		<!-- Le fav and touch icons -->
-		<link rel="shortcut icon" href="img/favicon.ico">
+				var location = function() {
+				};
+
+				//define Setter/Getter
+				location.prototype._lat = 50.609675;
+				location.prototype._lon = 3.136669;
+				location.prototype.__defineGetter__("lat", function() {
+					return this._lat;
+				});
+				location.prototype.__defineGetter__("lon", function() {
+					return this._lon;
+				});
+				location.prototype.__defineSetter__("lat", function(value) {
+					this._lat = value;
+				});
+				location.prototype.__defineSetter__("lon", function(value) {
+					this._lon = value;
+				});
+
+				var loc = new location();
+				var img = new google.maps.LatLng(loc.lat, loc.lon);
+				var mapOptions = {
+					zoom : 14,
+					center : img,
+					mapTypeId : google.maps.MapTypeId.ROADMAP
+				};
+				//Creer element
+				var mapcanvas = document.createElement('div');
+				mapcanvas.id = 'map_canvas';
+				mapcanvas.style.height = '400px';
+				mapcanvas.style.width = '100%';
+				document.getElementById('location').appendChild(mapcanvas);
+				map = new google.maps.Map(mapcanvas, mapOptions);
+				marker = new google.maps.Marker({
+					position : img,
+					map : map,
+					title : "Nous sommes ici!"
+				});
+
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition, showError);
+				}
+
+				//obtenir location
+				function showPosition(position) {
+					var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+					marker2 = new google.maps.Marker({
+						position : latlng,
+						map : map,
+						title : "Vous etre ici!"
+					});
+				}
+
+				function showError(error) {
+					var errorMsg = document.createElement('h5');
+					errorMsg.id = 'errorMsg';
+					switch (error.code) {
+						case error.PERMISSION_DENIED:
+							errorMsg.innerHTML = "User denied the request for Geolocation.";
+							break;
+						case error.POSITION_UNAVAILABLE:
+							errorMsg.innerHTML = "Location information is unavailable.";
+							break;
+						case error.TIMEOUT:
+							errorMsg.innerHTML = "The request to get user location timed out.";
+							break;
+						case error.UNKNOWN_ERROR:
+							errorMsg.innerHTML = "An unknown error occurred.";
+							break;
+					}
+					document.getElementById('location').appendChild(errorMsg);
+				}
+
+			}
+
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+
+			//websocket js
+			var socket;
+
+			function initChater() {
+				var host = "ws://echo.websocket.org";
+				try {
+					socket = new WebSocket(host);
+					log('WebSocket - status ' + socket.readyState);
+					socket.onopen = function(msg) {
+						log("Welcome - status " + this.readyState);
+					};
+					socket.onmessage = function(msg) {
+						log("Received: " + msg.data);
+					};
+					socket.onclose = function(msg) {
+						log("Disconnected - status " + this.readyState);
+					};
+				} catch (ex) {
+					log(ex);
+				}
+				document.getElementById("msg").focus();
+			}
+
+			function send() {
+				var txt, msg;
+				txt = document.getElementById("msg");
+				msg = txt.value;
+				if (!msg) {
+					alert("Message can not be empty");
+					return;
+				}
+				txt.value = "";
+				txt.focus();
+				try {
+					socket.send(msg);
+					log('Sent: ' + msg);
+				} catch (ex) {
+					log(ex);
+				}
+			}
+
+			function quit() {
+				log("Goodbye!");
+				socket.close();
+				socket = null;
+			}
+
+			function log(msg) {
+				document.getElementById("log").innerHTML += "<br>" + msg;
+			}
+
+			function onkey(event) {
+				if (event.keyCode == 13) {
+					send();
+				}
+			}
+
+
+			window.addEventListener('load', initChater, false);
+		</script>
+		<script src="js/main.js"></script>
 	</head>
-
 	<body>
-
 		<header>
 			<section class="navbar navbar-fixed-top">
 				<section class="navbar-inner">
 					<section class="container">
-						<a class="brand" href="#"
+						<a class="brand" href="index.html"
 						title="Bibliothèque">Bibliothèque</a><a class="btn btn-navbar"
 						data-toggle="collapse" data-target=".nav-collapse"> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
@@ -58,7 +212,7 @@
 											<a href="#">Musiques</a>
 										</li>
 										<li>
-											<a href="#">Images</a>
+											<a href="image.html">Images</a>
 										</li>
 										<li>
 											<a href="#">Movies</a>
@@ -78,7 +232,7 @@
 									<a href="service.html">Service</a>
 								</li>
 								<li id="contactMenu">
-									<a href="#contact">Contact</a>
+									<a href="contact.html">Contact</a>
 								</li>
 							</ul>
 							<ul id="navR" class="nav pull-right">
@@ -100,30 +254,24 @@
 				</section>
 			</section>
 		</header>
-	<body>
-		<div class="span7">
-			<h2>Cr&eacute;er votre signature ici</h2>
-			<canvas id="painter" width="500" height="200"
-			style="border: 1px solid red; background-color: #EEFFCC">
-				Your browser does not support the canvas element.
-			</canvas>
-			<div>
-				<input type="button" id="Button1" value="Effacer" class="btn btn-large btn-primary">
-				<input type="button" id="Button2" class="btn btn-large btn-primary" value="Redessiner">
-				<input type="button" id="Button3" class="btn btn-large btn-primary" value="Exporter comme image">
+
+		<div class="container-narrow">
+
+			<div id="location" class="span6">
+				<h3>Touvez nous</h3>
+				<p id="errorMsg"></p>
 			</div>
-			<div id="temp_box" class="span5"></div>
-		</div>
-		<div class="span5">
-			<div style="width:498px;height:700px;padding:10px;border:1px solid #aabbcc;text-align:center" id="image_mark">
-				<h2>Mes Favoris</h2>
-				<hr>
+			<br>
+			<div id="contact" class="span6">
+				<h3>Contactez nous</h3>
+				<div id="log"></div>
+				<input id="msg" type="textbox" onkeypress="onkey(event)" />
+				<button onclick="send()">
+					Send
+				</button>
+				<button onclick="quit()">
+					Quit
+				</button>
 			</div>
-		</div>
-		<script src="lib/prototype.js"></script>
-		<script src="js/bibliotheque.js"></script>
-		<script src="js/utils.js"></script>
-		<script src="js/router.js"></script>
-		<script src="js/main.js"></script>
 	</body>
 </html>

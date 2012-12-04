@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Images</title>
+		<meta name="description" content="Bibliothèque">
+		<meta name="author" content="YuchangLv & QiangLiu">
+
+		<!-- Styles -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<style>
+			.outside {
+				width: 235px;
+				height: 300px;
+				overflow: hidden;
+			}
+
+			body {
+				padding-top: 60px;
+			}
+		</style>
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+	</head>
+
+	<body>
+
+		<header>
+			<section class="navbar navbar-fixed-top">
+				<section class="navbar-inner">
+					<section class="container">
+						<a class="brand" href="index.html"
+						title="Bibliothèque">Bibliothèque</a><a class="btn btn-navbar"
+						data-toggle="collapse" data-target=".nav-collapse"> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> </a>
+
+						<section class="nav-collapse">
+							<ul id="navH" class="nav">
+								<li id="homeMenu">
+									<a href="index.html">Accueil</a>
+								</li>
+								<li id="resourceMenu" class="dropdown active">
+									<a
+									href="#ressources">Ressources</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="livre.html">Livres</a>
+										</li>
+										<li>
+											<a href="#">Magasins</a>
+										</li>
+										<li>
+											<a href="#">Musiques</a>
+										</li>
+										<li>
+											<a href="#">Images</a>
+										</li>
+										<li>
+											<a href="#">Movies</a>
+										</li>
+										<li>
+											<a href="#">Jounalistes</a>
+										</li>
+										<li>
+											<a href="#">Documents</a>
+										</li>
+									</ul>
+								</li>
+								<li id="contactMenu">
+									<a href="#actualites">Actualités</a>
+								</li>
+								<li id="contactMenu">
+									<a href="service.html">Service</a>
+								</li>
+								<li id="contactMenu">
+									<a href="#contact">Contact</a>
+								</li>
+							</ul>
+							<ul id="navR" class="nav pull-right">
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="inscription.html" id="signup">Inscrivez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="login">Identifiez-vous</a>
+								</li>
+								<li class="sectionider-vertical"></li>
+								<li>
+									<a href="#" id="about">Nous connaître</a>
+								</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+			</section>
+		</header>
+	<body>
+		<div class="span7">
+			<h2>Cr&eacute;er votre signature ici</h2>
+			<canvas id="painter" width="500" height="200"
+			style="border: 1px solid red; background-color: #EEFFCC">
+				Your browser does not support the canvas element.
+			</canvas>
+			<div>
+				<input type="button" id="Button1" value="Effacer" class="btn btn-large btn-primary">
+				<input type="button" id="Button2" class="btn btn-large btn-primary" value="Redessiner">
+				<input type="button" id="Button3" class="btn btn-large btn-primary" value="Exporter comme image">
+			</div>
+			<div id="temp_box" class="span5"></div>
+		</div>
+		<div class="span5">
+			<div style="width:498px;height:700px;padding:10px;border:1px solid #aabbcc;text-align:center" id="image_mark">
+				<h2>Mes Favoris</h2>
+				<hr>
+			</div>
+		</div>
+		<script src="lib/prototype.js"></script>
+		<script src="js/bibliotheque.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/router.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

@@ -36,7 +36,7 @@
 			<section class="navbar navbar-fixed-top">
 				<section class="navbar-inner">
 					<section class="container">
-						<a class="brand" href="#" title="Bibliothèque">Bibliothèque</a>
+						<a class="brand" href="index.html" title="Bibliothèque">Bibliothèque</a>
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
 
 						<section class="nav-collapse">
@@ -57,7 +57,7 @@
 											<a href="#">Musiques</a>
 										</li>
 										<li>
-											<a href="#">Images</a>
+											<a href="image.html">Images</a>
 										</li>
 										<li>
 											<a href="#">Movies</a>
@@ -77,7 +77,7 @@
 									<a href="service.html">Service</a>
 								</li>
 								<li id="contactMenu">
-									<a href="#contact">Contact</a>
+									<a href="contact.html">Contact</a>
 								</li>
 							</ul>
 							<ul id="navR" class="nav pull-right">
@@ -111,10 +111,13 @@
 						<a class="btn btn-danger btn-large" href="#">Savoir plus &raquo;</a>
 					</p>
 				</div>
-				<p>
+				<p style="display: inline; margin: 10px;">
 					<a id="plus" class="btn btn-primary btn-large">&raquo; Plus de meilleures livres </a>
 				</p>
-				<div id="livres" class="row">
+				<p style="display: inline; position: relative; left:5px; margin: 10px;">
+					<a id="inter" class="btn btn-success btn-large">&raquo; Prêt inter-bibliothèque </a>
+				</p>
+				<div id="livres" class="row" style="position: relative; top: 10px">
 					<div class="span3">
 						<article>
 							<div class="outside"><img src="toolsImg/b001.jpg">
@@ -201,25 +204,35 @@
 		<script src="js/main.js"></script>
 
 		<script type="text/javascript" language="javascript">
-			var btn1 = $("#plus");
+			var btn1 = $("#plus"),
+				btn2 = $("#inter");
+				
 			btn1.addEventListener("click", {
 				handleEvent : function(event) {
-					test();
+					ajax_test();
+				}
+			}, false);
+			
+			btn2.addEventListener("click", {
+				handleEvent : function(event){
+					crossdomain_test();
 				}
 			}, false);
 
-			function test() {
+			function ajax_test() {
 				var myAjax = new Ajax.Request('server/data.html', {
 					method : 'get',
-					onComplete : showResponse
+					onComplete : showResponseBtn1
 				});
 			}
-
-			function showResponse(response) {
-				document.getElementById("livres").innerHTML = response.responseText;
-
+			
+			function crossdomain_test(){
+				biblio.crossdomainInit();
 			}
 
+			function showResponseBtn1(response) {
+				document.getElementById("livres").innerHTML = response.responseText;
+			}
 		</script>
 
 	</body>

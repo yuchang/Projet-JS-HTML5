@@ -1,17 +1,18 @@
 (function(window){
 	Template.loadTpls([
-		'livre',
 		'notebook',
 	    //Insertion de nouveaux templates ici 
 	    ], function(){
-	    	
-	    biblio.canvasInit();
+
+		$(".dropdown").dropdown();
+		$("#navH").activeBtn("active");
+		$("#navR").activeBtn("active");	
+
 		biblio.notebookInit();
 		biblio.notebookActive();
 		
-		$(".dropdown").dropdown();
-		$("#navH").activeBtn("active");
-		$("#navR").activeBtn("active");		
+		//To review
+		biblio.canvasInit();	
 	});	
 })(window);
 

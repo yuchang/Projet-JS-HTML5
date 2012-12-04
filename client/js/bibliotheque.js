@@ -2,6 +2,7 @@
 	var biblio = function() {
 	};
 	
+	//HTML5 Canvas 2D
 	biblio.Drawbox = function(canvas) {
 		this.canvas = canvas;
 		this.context = this.canvas.getContext('2d');
@@ -138,6 +139,8 @@
 		}
 	};
 	
+	
+	//HTML5 Drag & Drop
 	biblio.canvasImgCounter = 1;
 	
 	biblio.canvasAllowDrop = function(ev){
@@ -192,6 +195,8 @@
 		}, false);		
 	}
 	
+	
+	//LocalStorage 
 	biblio.notebookInit = function(){
 		var notebook = document.getElementById("notebook");
 		notebook.innerHTML = Template.get("notebook");
@@ -215,6 +220,24 @@
 
 		btnNotebook.addEventListener("click", openNotebook, false);
 		textarea.addEventListener("dblclick", closeNotebook, false);
+	};
+	
+	
+	//Cross-domain (livre.html)
+	biblio.crossdomainInit = function(){
+		var baliseScript = document.createElement("script");
+		baliseScript.setAttribute("id", "crossdomain");
+		baliseScript.setAttribute("src","http://localhost/crossdomain/crossdomain.php?ID=crossdomain&callbackFunction=biblio.cdCallback");
+		document.getElementsByTagName("body")[0].appendChild(baliseScript);		
+	};
+	
+	biblio.deleteRequestTrace = function(id){
+		var nodeParent = document.getElementById(id).parentNode;
+		if(nodeParent) nodeParent.removeChild(document.getElementById(id));		
+	};
+	
+	biblio.cdCallback = function(data){
+		document.getElementById("livres").innerHTML = data;
 	};
 
 	window.biblio = biblio;
