@@ -1,4 +1,5 @@
 body {
+	padding-top: 60px;
 	background-color: #DCDDD8;
 }
 
@@ -109,4 +110,124 @@ form#inscription fieldset fieldset label {
 
 form#inscription fieldset fieldset label:hover {
 	cursor: pointer;
+}
+
+.form-signin {
+	max-width: 300px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+
+/* horizontal */
+.horizontal {
+	position: relative;
+	overflow: hidden;
+}
+.horizontal .items {
+	width: 400%;
+	-webkit-animation: hscroll 20s infinite;
+	-moz-animation: hscroll 20s infinite;
+	-ms-animation: hscroll 20s infinite;
+	animation: hscroll 20s infinite;
+}
+.horizontal .item {
+	margin: 0;
+	float: left;
+	width: 25%;
+}
+/*
+/* The keyframes calculations are based on assumption of 4 items in the carousel.
+/* You should notice the pattern for your own calculations.
+*/
+@-webkit-keyframes hscroll {
+	0%, 18.75%  { margin-left: 0 }
+	25%, 43.75% { margin-left: -100%; }
+	50%, 68.75% { margin-left: -200%; }
+	75%, 93.75% { margin-left: -300%; }
+	100%  { margin-left: 0 }
+}
+@-moz-keyframes hscroll {
+	0%, 18.75%  { margin-left: 0 }
+	25%, 43.75% { margin-left: -100%; }
+	50%, 68.75% { margin-left: -200%; }
+	75%, 93.75% { margin-left: -300%; }
+	100%  { margin-left: 0 }
+}
+@-ms-keyframes hscroll {
+	0%, 18.75%  { margin-left: 0 }
+	25%, 43.75% { margin-left: -100%; }
+	50%, 68.75% { margin-left: -200%; }
+	75%, 93.75% { margin-left: -300%; }
+	100%  { margin-left: 0 }
+}
+@keyframes hscroll {
+	0%, 18.75%  { margin-left: 0 }
+	25%, 43.75% { margin-left: -100%; }
+	50%, 68.75% { margin-left: -200%; }
+	75%, 93.75% { margin-left: -300%; }
+	100%  { margin-left: 0 }
+}
+
+
+
+/* Custom container Contact, Service*/
+.container-narrow {
+	margin: 0 auto;
+	max-width: 700px;
+}
+
+.container-narrow > hr {
+	margin: 30px 0;
+}
+
+#log {
+	width: 440px;
+	height: 200px;
+	border: 1px solid #7F9DB9;
+	overflow: auto;
+}
+
+#msg {
+	width: 330px;
+}
+
+/* Image, Livre*/
+.outside {
+	width: 235px;
+	height: 300px;
+	overflow: hidden;
+}
+
+/* Inscription*/
+.form-signin {
+	max-width: 300px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }

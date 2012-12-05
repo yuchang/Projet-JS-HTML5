@@ -11,160 +11,13 @@
 		<link href="css/bootstrap-responsive.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 
-		<style>
-			body {
-			padding-top: 60px;
-			}
-
-			.form-signin {
-			max-width: 300px;
-			padding: 19px 29px 29px;
-			margin: 0 auto 20px;
-			background-color: #fff;
-			border: 1px solid #e5e5e5;
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
-			border-radius: 5px;
-			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-			-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-			box-shadow: 0 1px 2px rgba(0,0,0,.05);
-			}
-			.form-signin .form-signin-heading,
-			.form-signin .checkbox {
-			margin-bottom: 10px;
-			}
-			.form-signin input[type="text"],
-			.form-signin input[type="password"] {
-			font-size: 16px;
-			height: auto;
-			margin-bottom: 15px;
-			padding: 7px 9px;
-			}
-
-			/* horizontal */
-			.horizontal {
-			position: relative;
-			overflow: hidden;
-			}
-			.horizontal .items {
-			width: 400%;
-			-webkit-animation: hscroll 20s infinite;
-			-moz-animation: hscroll 20s infinite;
-			-ms-animation: hscroll 20s infinite;
-			animation: hscroll 20s infinite;
-			}
-			.horizontal .item {
-			margin: 0;
-			float: left;
-			width: 25%;
-			}
-			/*
-			/* The keyframes calculations are based on assumption of 4 items in the carousel.
-			/* You should notice the pattern for your own calculations.
-			*/
-			@-webkit-keyframes hscroll {
-			0%, 18.75%  { margin-left: 0 }
-			25%, 43.75% { margin-left: -100%; }
-			50%, 68.75% { margin-left: -200%; }
-			75%, 93.75% { margin-left: -300%; }
-			100%  { margin-left: 0 }
-			}
-			@-moz-keyframes hscroll {
-			0%, 18.75%  { margin-left: 0 }
-			25%, 43.75% { margin-left: -100%; }
-			50%, 68.75% { margin-left: -200%; }
-			75%, 93.75% { margin-left: -300%; }
-			100%  { margin-left: 0 }
-			}
-			@-ms-keyframes hscroll {
-			0%, 18.75%  { margin-left: 0 }
-			25%, 43.75% { margin-left: -100%; }
-			50%, 68.75% { margin-left: -200%; }
-			75%, 93.75% { margin-left: -300%; }
-			100%  { margin-left: 0 }
-			}
-			@keyframes hscroll {
-			0%, 18.75%  { margin-left: 0 }
-			25%, 43.75% { margin-left: -100%; }
-			50%, 68.75% { margin-left: -200%; }
-			75%, 93.75% { margin-left: -300%; }
-			100%  { margin-left: 0 }
-			}
-		</style>
-
 		<!-- Le fav and touch icons -->
 		<link rel="shortcut icon" href="img/favicon.ico">
 	</head>
 
 	<body>
 
-		<header>
-			<section class="navbar navbar-fixed-top">
-				<section class="navbar-inner">
-					<section class="container">
-						<a class="brand" href="index.html" title="Bibliothèque">Bibliothèque</a>
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-
-						<section class="nav-collapse">
-							<ul id="navH" class="nav">
-								<li id="homeMenu" class="active">
-									<a href="index.html">Accueil</a>
-								</li>
-								<li id="resourceMenu" class="dropdown">
-									<a href="#ressources">Ressources</a>
-									<ul class="dropdown-menu">
-										<li>
-											<a href="livre.html">Livres</a>
-										</li>
-										<li>
-											<a href="#">Magasins</a>
-										</li>
-										<li>
-											<a href="#">Musiques</a>
-										</li>
-										<li>
-											<a href="image.html">Images</a>
-										</li>
-										<li>
-											<a href="#">Movies</a>
-										</li>
-										<li>
-											<a href="#">Jounalistes</a>
-										</li>
-										<li>
-											<a href="#">Documents</a>
-										</li>
-									</ul>
-								</li>
-								<li id="contactMenu">
-									<a href="#actualites">Actualités</a>
-								</li>
-								<li id="contactMenu">
-									<a href="service.html">Service</a>
-								</li>
-								<li id="contactMenu">
-									<a href="contact.html">Contact</a>
-								</li>
-							</ul>
-							<ul id="navR" class="nav pull-right">
-								<li class="sectionider-vertical"></li>
-								<li>
-									<a href="inscription.html" id="signup">Inscrivez-vous</a>
-								</li>
-								<li class="sectionider-vertical"></li>
-								<li>
-									<a href="#" id="login">Identifiez-vous</a>
-								</li>
-								<li class="sectionider-vertical"></li>
-								<li>
-									<a href="#" id="about">Nous connaître</a>
-								</li>
-							</ul>
-						</section>
-					</section>
-				</section>
-			</section>
-		</header>
+		<header id="topbar"></header>
 
 		<div class="container">
 			<ul class="thumbnails">
@@ -174,9 +27,9 @@
 						<div class="horizontal">
 							<div class="items">
 								<img alt="" class="item" src="toolsImg/head.jpg" />
-								<img alt="" class="item" src="toolsImg/head.jpg" />
-								<img alt="" class="item" src="toolsImg/head.jpg" />
-								<img alt="" class="item" src="toolsImg/head.jpg" />
+								<img alt="" class="item" src="toolsImg/head2.jpg" />
+								<img alt="" class="item" src="toolsImg/head3.jpg" />
+								<img alt="" class="item" src="toolsImg/head4.jpg" />
 							</div>
 						</div>
 					</div>
@@ -299,15 +152,12 @@
 			</ul>
 		</div>
 
-		<footer id="notebook">
-
-		</footer>
+		<footer id="notebook"></footer>
 
 		<!-- Chargement des fichiers JavaScript-->
 		<script src="lib/prototype.js"></script>
 		<script src="js/bibliotheque.js"></script>
 		<script src="js/utils.js"></script>
-		<script src="js/router.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>

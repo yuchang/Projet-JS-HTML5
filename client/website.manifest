@@ -1,6 +1,8 @@
 CACHE MANIFEST
-# revision 01
+# revision 05
+
 CACHE:
+actualites.html
 index.html
 inscription.html
 image.html
@@ -15,11 +17,15 @@ img/glyphicons-halflings.png
 img/glyphicons-halflings-white.png
 js/bibliotheque.js
 js/main.js
-js/router.js
 js/utils.js
+js/webworker.js
 lib/prototype.js
 server/data.html
+server/actualites1.html
+server/actualites2.html
+server/actualites3.html
 templates/notebook.html
+templates/topbar.html
 toolsImg/b001.jpg
 toolsImg/b002.jpg
 toolsImg/b003.jpg
@@ -29,6 +35,11 @@ toolsImg/b006.jpg
 toolsImg/b007.jpg
 toolsImg/head.jpg
 toolsImg/head2.jpg
+toolsImg/head3.jpg
+toolsImg/head4.jpg
+toolsImg/andree-chedid.jpg
+toolsImg/bibliotheque-belfort.jpg
+toolsImg/GPB2012-lehavre-une.jpg
 toolsImg/link1.jpg
 video/movie.ogg
 
@@ -36,7 +47,7 @@ NETWORK:
 *
 
 FALLBACK:
-offline.html
+* offline.html
 
 
 

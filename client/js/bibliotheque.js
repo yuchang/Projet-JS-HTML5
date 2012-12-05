@@ -2,7 +2,7 @@
 	var biblio = function() {
 	};
 	
-	//HTML5 Canvas 2D
+	// HTML5 Canvas 2D
 	biblio.Drawbox = function(canvas) {
 		this.canvas = canvas;
 		this.context = this.canvas.getContext('2d');
@@ -20,7 +20,7 @@
 	};
 	biblio.Drawbox.prototype = {
 		constructor : biblio.Drawbox,
-		
+
 		mousedown : function(e) {
 			this.drawing = true;
 			var pos = this.position(this.canvas, e);
@@ -51,8 +51,10 @@
 				_this.context.beginPath();
 				var l = _this.his.length;
 				if (!_this.his[l - 1].end) {
-					_this.context.moveTo(_this.his[l - 2].x, _this.his[l - 2].y);
-					_this.context.lineTo(_this.his[l - 1].x, _this.his[l - 1].y);
+					_this.context
+							.moveTo(_this.his[l - 2].x, _this.his[l - 2].y);
+					_this.context
+							.lineTo(_this.his[l - 1].x, _this.his[l - 1].y);
 					_this.context.stroke();
 				}
 			}
@@ -91,7 +93,8 @@
 			function draw() {
 				if (!_this.his[i].end) {
 					_this.context.moveTo(_this.his[i].x, _this.his[i].y);
-					_this.context.lineTo(_this.his[i + 1].x, _this.his[i + 1].y);
+					_this.context
+							.lineTo(_this.his[i + 1].x, _this.his[i + 1].y);
 					_this.context.stroke();
 				}
 				_this.timeout_draw = setTimeout(function() {
@@ -106,7 +109,7 @@
 		// export as a image
 		toPng : function() {
 			var url = this.canvas.toDataURL();
-			var img = document.createElement('img');
+			var img =  document.getElementById('temp_img')==null?document.createElement('img'):document.getElementById('temp_img');
 			img.id = "temp_img";
 			img.src = url;
 			img.addEventListener('dragstart', function(e) {
@@ -138,33 +141,41 @@
 			};
 		}
 	};
-	
-	
-	//HTML5 Drag & Drop
+
+	// HTML5 Drag & Drop
 	biblio.canvasImgCounter = 1;
-	
-	biblio.canvasAllowDrop = function(ev){
+
+	biblio.canvasAllowDrop = function(ev) {
 		ev.preventDefault();
 	};
-	
-	biblio.canvasDrop = function(ev){
+
+	biblio.canvasDrop = function(ev) {
 		ev.preventDefault();
 		var data = ev.dataTransfer.getData("Text");
 		var para = document.createElement('h4');
+		//ajouter a fs
+		addF(data, ev.dataTransfer.getData("src"));
 		para.innerHTML = "Signature-" + biblio.canvasImgCounter++;
 		para.style = "font: verdana,arial,sans-seri 24px";
 		var line = document.createElement('hr');
-		ev.target.appendChild(para);
-		ev.target.appendChild(document.getElementById(data));
-		ev.target.appendChild(line);		
+		var ob = ev.target; 
+		while(ob.id!="image_mark")
+			ob = ob.parentNode;
+		ob.appendChild(para);
+		var dragfile = document.getElementById(data);
+		dragfile.id += biblio.canvasImgCounter;
+		ob.appendChild(dragfile);
+		ob.appendChild(line);
 	};
-	
+
 	biblio.canvasDrag = function(ev) {
 		ev.dataTransfer.setData("Text", ev.target.id);
+		ev.dataTransfer.setData("src", ev.target.src);
 	};
-	
-	biblio.canvasInit = function(){
-		var draw = new biblio.Drawbox(document.getElementsByTagName('canvas')[0]);
+
+	biblio.canvasInit = function() {
+		var draw = new biblio.Drawbox(
+				document.getElementsByTagName('canvas')[0]);
 		draw.init();
 		// effacer
 		var bt1 = document.getElementById('Button1');
@@ -175,11 +186,11 @@
 		bt1.addEventListener('click', function(e) {
 			draw.clear()
 		}, false);
-	
+
 		bt2.addEventListener('click', function(e) {
 			draw.reDraw()
 		}, false);
-	
+
 		bt3.addEventListener('click', function(e) {
 			draw.toPng()
 		}, false);
@@ -192,14 +203,13 @@
 		// afer drop, allow anotther drop
 		mark.addEventListener('dragover', function(e) {
 			biblio.canvasAllowDrop(e)
-		}, false);		
+		}, false);
 	}
-	
 	
 	//LocalStorage 
 	biblio.notebookInit = function(){
 		var notebook = document.getElementById("notebook");
-		notebook.innerHTML = Template.get("notebook");
+		notebook.innerHTML = Template.get("templates/notebook");
 	};
 
 	biblio.notebookActive = function() {
@@ -239,6 +249,67 @@
 	biblio.cdCallback = function(data){
 		document.getElementById("livres").innerHTML = data;
 	};
+	
+	// ============FS api===============
+	window.requestFileSystem = window.requestFileSystem
+			|| window.webkitRequestFileSystem;
+	biblio.fs = null;
+
+	var errorHandler = function(e) {
+		var msg = '';
+		switch (e.code) {
+		case FileError.QUOTA_EXCEEDED_ERR:
+			msg = 'QUOTA_EXCEEDED_ERR';
+			break;
+		case FileError.NOT_FOUND_ERR:
+			msg = 'NOT_FOUND_ERR';
+			break;
+		case FileError.SECURITY_ERR:
+			msg = 'SECURITY_ERR';
+			break;
+		case FileError.INVALID_MODIFICATION_ERR:
+			msg = 'INVALID_MODIFICATION_ERR';
+			break;
+		case FileError.INVALID_STATE_ERR:
+			msg = 'INVALID_STATE_ERR';
+			break;
+		default:
+			msg = 'Unknown Error';
+			break;
+		}
+		;
+		document.getElementById('erMsg').innerHTML = 'Error: ' + msg;
+	}
+
+	var initFS = function() {
+		window.requestFileSystem(window.TEMPORARY, 1024 * 1024, function(
+				filesystem) {
+			biblio.fs = filesystem;
+		}, errorHandler);
+	}
+
+	var addF = function(file, src) {
+		if (!biblio.fs) {
+			return;
+		}
+
+		biblio.fs.root.getFile(file, {
+			create : true
+		}, null, errorHandler);
+		var fragment = document.createDocumentFragment();
+		var img = '<img src="http://www.html5rocks.com/static/images/tutorials/icon-file.gif">';
+		var li = document.createElement('li');
+		li.innerHTML = [ img, '<span><a href=', src ,' target="_blank">File', biblio.canvasImgCounter, '</a></span>' ].join('');
+		fragment.appendChild(li);
+		document.getElementById("filelist").appendChild(fragment);
+	}
+
+	// Initiate filesystem on page load.
+	if (window.requestFileSystem) {
+		initFS();
+	}
+
+	// ===============Fs api fin=============
 
 	window.biblio = biblio;
 })(window);

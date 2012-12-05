@@ -22,7 +22,7 @@ Template = {
         var loadTpl = function(index) {
             var view = views[index];
             console.log("Loading : " + view);
-            new Ajax.Request("templates/" + view + ".html",{
+            new Ajax.Request(view + ".html",{
             	method : 'get',
 				onSuccess : function(template){
 					self.tpls[view] = template.responseText;
@@ -41,9 +41,6 @@ Template = {
         return this.tpls[view];
     }
 };
-
-
-
 
 
 (function(window) {
@@ -97,10 +94,14 @@ Template = {
 		var dropmenu = this;
 		document.addEventListener("click", {
 			handleEvent : function(event) {
-				if (event.target.parentNode == dropmenu)
+				if (event.target.parentNode == dropmenu){
 					dropmenu.addClass("open");
-				else
+					$("#resourceMenu_li").addClass("active");
+				}
+				else{
 					dropmenu.removeClass("open");
+					$("#resourceMenu_li").removeClass("active");
+				}
 			}
 		}, false);
 	}
@@ -138,6 +139,26 @@ Template = {
 	 * Change the class of a list element to active
 	 */
 	HTMLElement.prototype.activeBtn = function(act) {
+		/*
+		$("#resourceMenu_li").addEventListener("click", function(e){
+			$("#resourceMenu_li").addClass(act);
+		},false);
+		
+		document.getElementsByTagName("body")[0].addEventListener("click",function(e){
+			$("#resourceMenu_li").removeClass(act);
+		},false);
+		*/
+		switch(window.location.href.split("/").pop()){
+			case "actualites.html" : $("#actualite_li").addClass(act); break;
+			case "image.html" : $("#resourceMenu_li").addClass(act); break;
+			case "index.html" : $("#homeMenu_li").addClass(act); break;
+			case "livre.html" : $("#resourceMenu_li").addClass(act); break;
+			case "service.html" : $("#service_li").addClass(act); break;
+			case "contact.html" : $("#contact_li").addClass(act); break;
+			case "inscription.html" : $("#inscription_li").addClass(act); break;
+			default : break;
+		}
+		/*
 		var origin = this;
 		var groups = this.childNodes;
 		for ( var i = 0; i < groups.length; i++) {
@@ -146,7 +167,7 @@ Template = {
 				btn.addEventListener("click", {
 					handleEvent : function(event) {
 						if (event.target.parentNode.parentNode == origin) {
-							event.target.parentNode.addClass(act);
+							//event.target.parentNode.addClass(act);
 							for ( var i = 0; i < groups.length; i++) {
 								bt = groups[i];
 								if (bt.nodeType == 1 && bt != event.target.parentNode)
@@ -157,6 +178,7 @@ Template = {
 				}, false);
 			}
 		}
+		*/
 	}
 
 	window.foo = window.$ = foo;
