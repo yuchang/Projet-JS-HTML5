@@ -1,0 +1,9 @@
+<?php
+	$id=$_GET['ID'];
+	$callbackFunction=$_GET['callbackFunction'];
+	$infos = "<div class='span3'><article><div class='outside'><img src='http://multimedia.fnac.com/multimedia/FR/images_produits/FR/Fnac.com/ZoomPE/8/0/0/9791090085008.jpg'></div><h2>Apprenez &agrave; programmer en C</h2><h5>Mathieu Nebra</h5><p>Apprenez &agrave; programmer en C est le premier volume de la collection Livre du Z&eacute;ro. Cet ouvrage initie en douceur &agrave; la manipulation des concepts de base et avanc&eacute;s du C (variables, pointeurs, structures, tableaux, cha&icirc;nes de caract&egrave;res, allocation... </p><p><a class='btn' href='#'>Voir detailes &raquo;</a></p></article></div><div class='span3'><article><div class='outside'><img src='http://multimedia.fnac.com/multimedia/FR/images_produits/FR/Fnac.com/ZoomPE/9/8/8/9782953527889.jpg'></div><h2>R&eacute;alisez votre site web avec HTML5 et CSS3</h2><h5>Mathieu Nebra</h5><p>R&eacute;alisez votre site web avec HTML5 et CSS3 permet de d&eacute;couvrir HTML5 et CSS3, les derni&egrave;res technologies de cr&eacute;ation de sites web, grace &agrave; 20 chapitres de difficult&eacute; progressive et &agrave; des travaux pratiques. Ce Livre du Z&eacute;ro con&ccedil;u pour les d&eacute;butants pr&eacute;sente les balises HTML5 et d&eacute;crit l'habillage des pages grace &agrave; CSS3. Le lecteur pourra cr&eacute;er son design de A &agrave; Z, ins&eacute;rer des images et des vid&eacute;os ou encore h&eacute;berger son site sur le web. </p><p><a class='btn' href='#'>Voir detailes &raquo;</a></p></article></div><hr>";
+
+	header("Content-Type: application/x-javascript;charset=utf-8");
+	echo $callbackFunction . "(\"" . $infos . "\");\n";
+	echo "biblio.deleteRequestTrace ( '" . $id . "' );\n";
+?>
